@@ -46,7 +46,6 @@ Chroma==0.2.0
 chroma-hnswlib==0.7.3
 chromadb==0.4.24
 cleo==0.8.1
-cliapp==1.20180812.1
 click==8.1.7
 click-didyoumean==0.3.0
 click-plugins==1.1.1
