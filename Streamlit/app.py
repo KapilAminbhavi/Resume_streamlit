@@ -1,9 +1,7 @@
 import os
 import streamlit as st
-from langchain_groq import ChatGroq
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
@@ -16,7 +14,6 @@ import time
 load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-groq_api_key = os.getenv('GROQ_API_KEY')
 
 st.title("Job Description Matcher")
 
