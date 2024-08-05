@@ -83,7 +83,7 @@ Insight: [Provide a comprehensive analysis of each candidate's resume in relatio
 def vector_embedding():
     if "vectors" not in st.session_state:
         st.session_state.embeddings = OpenAIEmbeddings()
-        st.session_state.loader = PyPDFDirectoryLoader("./hello")
+        st.session_state.loader = PyPDFDirectoryLoader("Kapil_Aminbhavi.pdf")
         st.session_state.docs = st.session_state.loader.load()
         st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
         st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs)
