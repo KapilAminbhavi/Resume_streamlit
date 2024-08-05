@@ -9,8 +9,9 @@ from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from dotenv import load_dotenv
+import tempfile
+import shutil
 import time
-
 load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -18,12 +19,12 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 st.title("Job Description Matcher")
 
 llm = ChatOpenAI(
-            model_name="gpt-4o-mini",
-            temperature=0.2,
+    model_name="gpt-4o-mini",
+    temperature=0.2,
 )
 
 prompt = ChatPromptTemplate.from_template(
-""""
+"""
 Compare the job description with each candidate's resume and calculate the matching percentages based on the following advanced criteria:
 
 1. **Keyword Match Percentage**:
@@ -75,25 +76,36 @@ Overall Match: [Percentage]
 .......
 
 Insight: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements, and suggest potential areas where the candidate may exceed or fall short of the desired qualifications.]
-
 """
 )
 
+# Create a temporary directory to store uploaded files
+uploaded_files = st.file_uploader("Upload Resumes (PDF files)", type="pdf", accept_multiple_files=True)
 
-def vector_embedding():
+def save_uploaded_files(uploaded_files):
+    temp_dir = tempfile.mkdtemp()
+    for file in uploaded_files:
+        with open(os.path.join(temp_dir, file.name), "wb") as f:
+            f.write(file.read())
+    return temp_dir
+
+def vector_embedding(temp_dir):
     if "vectors" not in st.session_state:
         st.session_state.embeddings = OpenAIEmbeddings()
-        st.session_state.loader = PyPDFDirectoryLoader("./hello")
+        st.session_state.loader = PyPDFDirectoryLoader(temp_dir)
         st.session_state.docs = st.session_state.loader.load()
         st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
         st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs)
         st.session_state.vectors = FAISS.from_documents(st.session_state.final_documents, st.session_state.embeddings)
 
-job_description = st.text_area("Enter the Job Description", height=100)
+if uploaded_files:
+    temp_dir = save_uploaded_files(uploaded_files)
+    if st.button("Documents Embedding"):
+        vector_embedding(temp_dir)
+        st.write("Vector Store DB Is Ready")
+        shutil.rmtree(temp_dir)  # Clean up temporary directory after embedding
 
-if st.button("Documents Embedding"):
-    vector_embedding()
-    st.write("Vector Store DB Is Ready")
+job_description = st.text_area("Enter the Job Description", height=100)
 
 if job_description:
     document_chain = create_stuff_documents_chain(llm, prompt)
