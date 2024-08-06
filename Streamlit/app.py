@@ -71,7 +71,15 @@ Skill Experience Match: [Percentage]
 Prominent Skills: [Highlight the most prominent technical skills for the respective job description in just one line.]
 Overall Match: [Percentage]
 
-Insight: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant technical experiences, and overall fit for the role. Include an evaluation of how well the candidate's technical skills, experiences, and accomplishments align with the job requirements, and suggest potential areas where the candidate may exceed or fall short of the desired qualifications.]
+Candidate 2: [Name]
+Keyword Match: [Percentage]
+//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
+Skill Experience Match: [Percentage]
+//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
+Overall Match: [Percentage]
+
+Insight: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements, and suggest potential areas where the candidate may exceed or fall short of the desired qualifications.]
 """
 )
 
