@@ -23,18 +23,21 @@ llm = ChatOpenAI(
     temperature=0.2,
 )
 
-prompt = ChatPromptTemplate.from_template(
+pprompt = ChatPromptTemplate.from_template(
 """
-Compare the job description with each candidate's resume and calculate the matching percentages based on the following advanced criteria:
+You are an expert in analysing resumes, with profound knowledge in technology, software engineering, data science, full stack web development, cloud enginner, 
+cloud developers, devops engineer and big data engineering. 
+Your role involves evaluating resumes against job descriptions.
+Recognizing the competitive job market, provide top-notch assistance over the analysis of the resumes against the job description.
 
 1. **Keyword Match Percentage**:
-   - **Semantic Similarity**: Compare the meaning of words in the job description and resume, using embeddings to account for synonyms and related terms.
+   - **Semantic Similarity**: Compare the meaning of technical words in the job description and resume, using embeddings to account for related technical terms.
    - **Contextual Relevance**: Evaluate how relevant the matched keywords are in context, considering the specific tasks or roles they are associated with.
    - **Synonym Matching**: Consider synonyms and related terms to ensure broader keyword coverage but these keywords have to be technical terms and not common words.
    - **Keyword Density**: Analyze the frequency and distribution of important keywords across the resume.
 
 2. **Skill Experience Match Percentage**:
-   - **Experience Relevance**: Evaluate the relevance of the candidate's experience to the specific tasks or projects mentioned in the job description.
+   - **Experience Relevance**: Evaluate the relevance of the candidate's experience to the specific skills,tasks or projects mentioned in the job description.
    - **Skill Level Alignment**: Compare the required proficiency level for each skill in the job description with the candidate's proficiency.
    - **Recency of Experience**: Give higher weight to more recent experience with critical skills.
    - **Skill Utilization Frequency**: Consider the frequency and breadth of the candidate's use of each skill across different roles and projects.
@@ -46,10 +49,10 @@ Compare the job description with each candidate's resume and calculate the match
 
 5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the job description's requirements.
 
-Ensure that only the candidates relevant to the job description are displayed. 
+Ensure that only the candidates who are even highly relevant to the job description are displayed. 
 Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
-Today's date is 5th of August, 2024.
+Today's date is 6th of August, 2024.
 
 Job Description:
 {input}
@@ -59,21 +62,21 @@ Resume Context:
 
 The final response will strictly be in the following format:
 
-Candidate1: [Name]
+Candidate 1: [Name]
 Keyword Match: [Percentage]
-Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
+//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
-Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
 Overall Match: [Percentage]
 
-Candidate2: [Name]
+Candidate 2: [Name]
 Keyword Match: [Percentage]
-Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
+//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
-Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
 Overall Match: [Percentage]
-
-.......
 
 Insight: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements, and suggest potential areas where the candidate may exceed or fall short of the desired qualifications.]
 """
