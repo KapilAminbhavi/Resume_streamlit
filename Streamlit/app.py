@@ -50,7 +50,7 @@ Recognizing the competitive job market, provide top-notch assistance over the an
 
 5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the job description's requirements.
 
-Ensure that the candidates who are even slightly relevant to the job description are displayed. 
+Ensure that only the candidates who are even highly relevant to the job description are displayed. 
 Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
 Today's date is 6th of August, 2024.
@@ -72,14 +72,6 @@ Prominent Skills: [Highlight the most prominent skills for the respective job de
 Overall Match: [Percentage]
 
 Candidate 2: [Name]
-Keyword Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
-Skill Experience Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
-Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
-Overall Match: [Percentage]
-
-Candidate 3: [Name]
 Keyword Match: [Percentage]
 //Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
