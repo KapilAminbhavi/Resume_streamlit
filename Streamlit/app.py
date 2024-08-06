@@ -79,12 +79,7 @@ Skill Experience Match: [Percentage]
 Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
 Overall Match: [Percentage]
 
-.
-.
-.
-.
-
-Candidate 10: [Name]
+Candidate 3: [Name]
 Keyword Match: [Percentage]
 //Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
