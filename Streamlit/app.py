@@ -33,7 +33,6 @@ Recognizing the competitive job market, provide top-notch assistance over the an
 1. **Keyword Match Percentage**:
    - **Semantic Similarity**: Compare the meaning of technical words in the job description and resume, using embeddings to account for related technical terms.
    - **Contextual Relevance**: Evaluate how relevant the matched keywords are in context, considering the specific tasks or roles they are associated with.
-   - **Synonym Matching**: Consider synonyms and related terms to ensure broader keyword coverage but these keywords have to be technical terms and not common words.
    - **Keyword Density**: Analyze the frequency and distribution of important keywords across the resume.
 
 2. **Skill Experience Match Percentage**:
@@ -49,7 +48,6 @@ Recognizing the competitive job market, provide top-notch assistance over the an
 
 5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the job description's requirements.
 
-Ensure that only the candidates who are even highly relevant to the job description are displayed. 
 Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
 Today's date is 6th of August, 2024.
@@ -62,19 +60,11 @@ Resume Context:
 
 The final response will strictly be in the following format:
 
-Candidate 1: [Name]
+Candidate Name: [Name]
 Keyword Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
+Aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density in a few sentences. These sentences are to be in bullet points. 
 Skill Experience Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
-Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
-Overall Match: [Percentage]
-
-Candidate 2: [Name]
-Keyword Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
-Skill Experience Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+Aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization in a few sentences but in bullet points.
 Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
 Overall Match: [Percentage]
 
