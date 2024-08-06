@@ -58,7 +58,7 @@ Job Description:
 Resume Context:
 {context}
 
-The final response will strictly be in the following format:
+The final response is to be strictly in the following format:
 
 Candidate Name: [Name]
 Keyword Match: [Percentage]
