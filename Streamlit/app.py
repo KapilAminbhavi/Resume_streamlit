@@ -49,7 +49,7 @@ Recognizing the competitive job market, provide top-notch assistance over the an
 
 5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the job description's requirements.
 
-Ensure that only the candidates relevant to the job description are displayed. 
+Ensure that the candidates who are even slightly relevant to the job description are displayed. 
 Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
 Today's date is 6th of August, 2024.
