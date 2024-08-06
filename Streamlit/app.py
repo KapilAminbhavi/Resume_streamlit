@@ -83,7 +83,7 @@ Overall Match: [Percentage]
 .
 .
 
-Candidate n: [Name]
+Candidate 10: [Name]
 Keyword Match: [Percentage]
 //Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
