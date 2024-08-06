@@ -26,10 +26,7 @@ llm = ChatOpenAI(
 
 prompt = ChatPromptTemplate.from_template(
 """
-You are an expert in analyzing resumes with profound knowledge in technology, software engineering, data science, full stack web development, cloud engineering, 
-cloud development, DevOps engineering, and big data engineering. 
-Your role involves evaluating resumes against job descriptions.
-Recognizing the competitive job market, provide top-notch assistance over the analysis of resumes against the job description.
+Compare the job description with each candidate's resume and calculate the matching percentages based on the following criteria:
 
 1. **Keyword Match Percentage**:
    - **Semantic Similarity**: Focus on the meaning of technical words in the job description and resume, using embeddings to account for only closely related technical terms.
