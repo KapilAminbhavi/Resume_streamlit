@@ -11,7 +11,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from dotenv import load_dotenv
 import tempfile
 import shutil
-
+import time
 load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -23,7 +23,7 @@ llm = ChatOpenAI(
     temperature=0.2,
 )
 
-pprompt = ChatPromptTemplate.from_template(
+prompt = ChatPromptTemplate.from_template(
 """
 You are an expert in analysing resumes, with profound knowledge in technology, software engineering, data science, full stack web development, cloud enginner, 
 cloud developers, devops engineer and big data engineering. 
