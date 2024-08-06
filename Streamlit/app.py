@@ -19,7 +19,8 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 st.title("Job Description Matcher")
 
 llm = ChatOpenAI(
-    model_name="gpt-4o-mini",
+    model_name="gpt-4o-mini-2024-07-18",
+    max_tokens=15000,
     temperature=0.2,
 )
 
