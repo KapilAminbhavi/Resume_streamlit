@@ -49,7 +49,7 @@ Compare the job description with each candidate's resume and calculate the match
 Ensure that only the candidates relevant to the job description are displayed. 
 Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
-Today's date is 5th of August, 2024.
+Today's date is 6th of August, 2024.
 
 Job Description:
 {input}
@@ -64,6 +64,7 @@ Keyword Match: [Percentage]
 Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
 Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+Highlight the most prominent skills for the respective job description in just one line.
 Overall Match: [Percentage]
 
 Candidate2: [Name]
@@ -71,6 +72,7 @@ Keyword Match: [Percentage]
 Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
 Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
+Highlight the most prominent skills for the respective job description in just one line.
 Overall Match: [Percentage]
 
 .......
