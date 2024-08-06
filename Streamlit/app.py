@@ -11,7 +11,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from dotenv import load_dotenv
 import tempfile
 import shutil
-import time
+
 load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -19,38 +19,37 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 st.title("Job Description Matcher")
 
 llm = ChatOpenAI(
-    model_name="gpt-4o-mini-2024-07-18",
-    max_tokens=15000,
+    model_name="gpt-4o-mini",
     temperature=0.2,
 )
 
 prompt = ChatPromptTemplate.from_template(
 """
-Compare the job description with each candidate's resume and calculate the matching percentages based on the following criteria:
+Compare the job description with each candidate's resume and calculate the matching percentages based on the following advanced criteria:
 
 1. **Keyword Match Percentage**:
-   - **Semantic Similarity**: Focus on the meaning of technical words in the job description and resume, using embeddings to account for only closely related technical terms.
-   - **Contextual Relevance**: Evaluate the relevance of matched technical keywords within the specific context of data engineering tasks, projects, or roles. Candidates must have strong alignment in context.
-   - **Synonym Matching**: Strictly consider technical synonyms and related technical terms to ensure broader keyword coverage without considering common words.
-   - **Keyword Density**: Analyze the frequency and distribution of important technical keywords across the resume. High density of relevant keywords is required.
+   - **Semantic Similarity**: Compare the meaning of words in the job description and resume, using embeddings to account for synonyms and related terms.
+   - **Contextual Relevance**: Evaluate how relevant the matched keywords are in context, considering the specific tasks or roles they are associated with.
+   - **Synonym Matching**: Consider synonyms and related terms to ensure broader keyword coverage but these keywords have to be technical terms and not common words.
+   - **Keyword Density**: Analyze the frequency and distribution of important keywords across the resume.
 
 2. **Skill Experience Match Percentage**:
-   - **Experience Relevance**: Strictly evaluate the relevance of the candidate's experience to the specific technical skills, tasks, or projects mentioned in the job description.
-   - **Skill Level Alignment**: Compare the required proficiency level for each technical skill in the job description with the candidate's proficiency.
-   - **Recency of Experience**: Give higher weight to more recent experience with critical technical skills.
-   - **Skill Utilization Frequency**: Consider the frequency and breadth of the candidate's use of each technical skill across different roles and projects.
-   - **Project Complexity**: Assess the complexity of projects the candidate has worked on using specific technical skills.
+   - **Experience Relevance**: Evaluate the relevance of the candidate's experience to the specific tasks or projects mentioned in the job description.
+   - **Skill Level Alignment**: Compare the required proficiency level for each skill in the job description with the candidate's proficiency.
+   - **Recency of Experience**: Give higher weight to more recent experience with critical skills.
+   - **Skill Utilization Frequency**: Consider the frequency and breadth of the candidate's use of each skill across different roles and projects.
+   - **Project Complexity**: Assess the complexity of projects the candidate has worked on using specific skills.
 
-3. **Cultural Fit Assessment**: Analyze how well the candidate's work experience and values align with the company's culture and the role's technical requirements.
+3. **Cultural Fit Assessment**: Analyze how well the candidate's work experience and values align with the company's culture and the role's requirements.
 
-4. **Educational Alignment**: Compare the candidate's educational background with the technical educational requirements or preferences in the job description.
+4. **Educational Alignment**: Compare the candidate's educational background with the educational requirements or preferences in the job description.
 
-5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the technical requirements of the job description.
+5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the job description's requirements.
 
-Ensure that only candidates who are highly relevant to the technical requirements of the job description are displayed. 
-Also, provide a list of the candidate's strongest technical skills in order of relevance, and compare this order with the priority of technical skills in the job description. 
+Ensure that only the candidates relevant to the job description are displayed. 
+Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
-Today's date is 6th of August, 2024.
+Today's date is 5th of August, 2024.
 
 Job Description:
 {input}
@@ -60,26 +59,25 @@ Resume Context:
 
 The final response will strictly be in the following format:
 
-Candidate 1: [Name]
+Candidate1: [Name]
 Keyword Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e., Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density, and then provide the percentage. 
+Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e., Experience Relevance, Skill level alignment, recency of experience, skill utilization, and then provide the percentage.
-Prominent Skills: [Highlight the most prominent technical skills for the respective job description in just one line.]
+Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
 Overall Match: [Percentage]
 
-Candidate 2: [Name]
+Candidate2: [Name]
 Keyword Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
+Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density and then provide percentage. 
 Skill Experience Match: [Percentage]
-//Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
-Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
+Calculation for above Percentage: Break down the percentage calculation by aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization and then provide percentage.
 Overall Match: [Percentage]
+
+.......
 
 Insight: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements, and suggest potential areas where the candidate may exceed or fall short of the desired qualifications.]
 """
 )
-
 
 # Create a temporary directory to store uploaded files
 uploaded_files = st.file_uploader("Upload Resumes (PDF files)", type="pdf", accept_multiple_files=True)
