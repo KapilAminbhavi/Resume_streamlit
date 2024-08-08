@@ -65,11 +65,12 @@ Candidate Name: [Name]
 - **Recency & Skill Utilization Frequency**: [Combined Match Score]
     -   [Explanation]
 
-**Prominent Skills**: [Highlight the most prominent skills for the respective job description in bullet points.]
+**PROMINENT SKILLS**: [Highlight the most prominent skills for the respective job description in bullet points.]
 
-**Overall Match Score**: [Score]
+**OVERALL MATCH SCORE**: [Score]
 
-**Insight**: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements. Do not mention anything on how to improve the candidacy at all.]
+**INSIGHT**:
+[Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements. Do not mention anything on how to improve the candidacy at all.]
 """
 )
 
