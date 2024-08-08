@@ -25,32 +25,22 @@ llm = ChatOpenAI(
 
 prompt = ChatPromptTemplate.from_template(
 """
-You are an expert in analysing resumes, with profound knowledge in technology, software engineering, data science, full stack web development, cloud enginner, 
-cloud developers, devops engineer and big data engineering. 
+You are an expert in analyzing resumes, with profound knowledge in technology, software engineering, data science, full stack web development, cloud engineering, 
+cloud development, devops engineering, and big data engineering. 
 Your role involves evaluating resumes against job descriptions.
 Recognizing the competitive job market, provide top-notch assistance over the analysis of the resumes against the job description.
 
-1. **Keyword Match Percentage**:
-   - **Semantic Similarity**: Compare the meaning of technical words in the job description and resume, using embeddings to account for related technical terms.
-   - **Contextual Relevance**: Evaluate how relevant the matched keywords are in context, considering the specific tasks or roles they are associated with.
-   - **Keyword Density**: Analyze the frequency and distribution of important keywords across the resume.
+1. **Keyword Match Score**:
+   - **Semantic & Contextual Relevance**: [Combined Match Score from Semantic Similarity and Contextual Relevance] - Provide the breakdown of how the semantic similarity and contextual relevance were calculated, including specific technical terms found in the resume and their relevance to the job description.
+   - **Keyword Density**: [Match Score from Keyword Density] - Discuss the frequency and distribution of important keywords in the resume and how it impacts the overall keyword match score.
 
-2. **Skill Experience Match Percentage**:
-   - **Experience Relevance**: Evaluate the relevance of the candidate's experience to the specific skills,tasks or projects mentioned in the job description.
-   - **Skill Level Alignment**: Compare the required proficiency level for each skill in the job description with the candidate's proficiency.
-   - **Recency of Experience**: Give higher weight to more recent experience with critical skills.
-   - **Skill Utilization Frequency**: Consider the frequency and breadth of the candidate's use of each skill across different roles and projects.
-   - **Project Complexity**: Assess the complexity of projects the candidate has worked on using specific skills.
-
-3. **Cultural Fit Assessment**: Analyze how well the candidate's work experience and values align with the company's culture and the role's requirements.
-
-4. **Educational Alignment**: Compare the candidate's educational background with the educational requirements or preferences in the job description.
-
-5. **Certifications and Training**: Consider the relevance of any certifications or training programs that align with the job description's requirements.
+2. **Skill Experience Match Score**:
+   - **Experience & Skill Level Alignment**: [Combined Match Score from Experience Relevance and Skill Level Alignment] - Break down the relevance of the candidate's past experience and proficiency levels in comparison to the job description's requirements, citing specific roles or projects.
+   - **Recency & Skill Utilization Frequency**: [Combined Match Score from Recency of Experience and Skill Utilization Frequency] - Highlight the weight given to recent experience with key skills and how often and in what contexts the candidate has used the required skills, affecting the match score.
 
 Also, provide a list of the candidate's strongest skills in order of relevance, and compare this order with the priority of skills in the job description. 
 
-Today's date is 6th of August, 2024.
+Today's date is 8th of August, 2024.
 
 Job Description:
 {input}
@@ -58,19 +48,33 @@ Job Description:
 Resume Context:
 {context}
 
-The final response is to be strictly in the following format:
+The final response will strictly be in the following format:
 
 Candidate Name: [Name]
-Keyword Match: [Percentage]
-Aggregating all 4, i.e, Semantic Similarity, Contextual Relevance, Synonym Matching and Keyword Density in a few sentences. These sentences are to be in bullet points. 
-Skill Experience Match: [Percentage]
-Aggregating all 4, i.e Experience Relevance, Skill level alignment, recency of experience, skill utilization in a few sentences but in bullet points.
-Prominent Skills: [Highlight the most prominent skills for the respective job description in just one line.]
-Overall Match: [Percentage]
 
-Insight: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements, and suggest potential areas where the candidate may exceed or fall short of the desired qualifications.]
+**KEYWORD MATCH SCORE**: [Score]
+- **Semantic & Contextual Relevance**: [Combined Match Score]
+    - [Explanation as to how you achieved that match score]
+- **Keyword Density**: [Match Score]
+    - [Explanation]
+
+**SKILL EXPERIENCE MATCH SCORE**: [Score]
+- **Experience & Skill Level Alignment**: [Combined Match Score]
+    -  [Explanation ]
+- **Recency & Skill Utilization Frequency**: [Combined Match Score]
+    -   [Explanation]
+
+**Prominent Skills**: [Highlight the most prominent skills for the respective job description in bullet points.]
+
+**Overall Match Score**: [Score]
+
+**Insight**: [Provide a comprehensive analysis of each candidate's resume in relation to the specific job description. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements. Do not mention anything on how to improve the candidacy at all.]
 """
 )
+
+
+
+
 
 # Create a temporary directory to store uploaded files
 uploaded_files = st.file_uploader("Upload Resumes (PDF files)", type="pdf", accept_multiple_files=True)
