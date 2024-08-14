@@ -65,12 +65,12 @@ Candidate Name: [Name]
 - **Recency & Skill Utilization Frequency**: [Combined Match Score]
     -   [Explanation]
 
-**PROMINENT SKILLS**: [Highlight the most prominent skills for the respective job description in bullet points.]
+**PROMINENT SKILLS**: [Highlight the most prominent skills for the respective job description in bullet points. Make sure you map every skill that is extracted with its proficiency level from the resume based on the JD. The proficiency level ranges from 1-5 for beginner(1), intermediate(2), advanced(3), expert(4) and master(5). Just print it in this format, skill: level - level name]]
 
 **OVERALL MATCH SCORE**: [Score]
 
 **INSIGHT**:
-[Provide a comprehensive analysis of each candidate's resume in relation to the specific job description in just 4-5 lines and not more than that. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements. Do not mention anything on how to improve the candidacy at all.]
+[Provide a comprehensive analysis of each candidate's resume in relation to the specific job description in just 4-5 lines and not more than that. Highlight the candidate's key strengths, relevant experiences, and overall fit for the role. Include an evaluation of how well the candidate's skills, experiences, and accomplishments align with the job requirements. Do not mention anything on how to improve the candidacy at all. ]
 """
 )
 
