@@ -51,7 +51,7 @@ Resume Context:
 
 The final response will strictly be in the following format:
 
-Candidate Name: [Name]
+**CANDIDATE NAME**: [Name]
 
 **KEYWORD MATCH SCORE**: [Score]
 - **Semantic & Contextual Relevance**: [Combined Match Score]
